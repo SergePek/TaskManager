@@ -9,6 +9,9 @@ const Stack = createStackNavigator();
 
 
 export default function Navigate (){
+
+
+    
     return <NavigationContainer>
         <Stack.Navigator>
             <Stack.Screen
