@@ -12,7 +12,7 @@ export default function Tasks() {
 
   const taskss = useSelector(state => state.task.tasks);
 
-  console.log('Tasks : ' + taskss);
+  console.log('Tasks : ' + taskss.length);
 
   return (
     <View style={styles.container}>
@@ -24,7 +24,7 @@ export default function Tasks() {
         )} />
 
       </View>
-      <Button style={styles.button} title='Удалить события' onPress={() => { dispatch(deleteTasks()) }} />
+      {taskss.length>0 && <Button style={styles.button}  title='Удалить события' onPress={() => { dispatch(deleteTasks()) }} />}
     </View>
   );
 
