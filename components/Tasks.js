@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react';
 
-import { StyleSheet, Text, View, FlatList, Button } from 'react-native';
+import { StyleSheet, View, FlatList, Button } from 'react-native';
 import ListItem from './ListItem';
 import Form from './Form';
 import { useSelector, useDispatch } from 'react-redux';
@@ -12,20 +11,26 @@ export default function Tasks() {
 
   const taskss = useSelector(state => state.task.tasks);
 
-  console.log('Tasks : ' + taskss.length);
+  //console.log('Tasks : ' + taskss.length);
 
   return (
     <View style={styles.container}>
 
-      <Form  />
-      <View>
-        <FlatList data={taskss} renderItem={({ item }) => (
-          <ListItem elem={item} />
-        )} />
+      <Form style={styles.form} />
 
+      <View style={styles.button}>
+        {taskss.length > 0 && <Button title='Удалить события' onPress={() => { dispatch(deleteTasks()) }} />}
       </View>
-      {taskss.length>0 && <Button style={styles.button}  title='Удалить события' onPress={() => { dispatch(deleteTasks()) }} />}
+
+      <FlatList
+        data={taskss}
+        renderItem={({ item }) => (
+          <ListItem elem={item} />
+        )}
+        keyExtractor={( item ) => item.date}
+      />
     </View>
+
   );
 
 
@@ -34,9 +39,17 @@ export default function Tasks() {
 const styles = StyleSheet.create({
   container: {
 
+
+  },
+  form: {
+
+  },
+  scrollview: {
+
   },
   button: {
-
+    paddingTop: '10px',
+    paddingBottom: '10px'
   }
 
 });

@@ -47,16 +47,19 @@ const styles = StyleSheet.create({
   date: {
     paddingRight: 10,
     fontSize: 18,
+    width: '30%',
 
   },
   task: {
     
-    fontSize: 18
+    fontSize: 18,
+    width: '70%'
   },
   task1: {
     
     fontSize: 18,
-    backgroundColor:'red'
+    backgroundColor:'red',
+    width: '70%'
   }
   
 });
