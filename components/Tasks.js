@@ -17,7 +17,7 @@ export default function Tasks() {
     <View style={{flex:1}}>
 
       <Form style={{flex:1}}/>
-      <ScrollView style={{flex:1}}>
+      
         <FlatList style={{flex:1}}
           data={taskss}
           renderItem={({ item }) => (
@@ -26,7 +26,7 @@ export default function Tasks() {
 
           keyExtractor={(item) => item.date}
         />
-      </ScrollView>
+      
 
 
       {taskss.length > 0 && <Button style={{flex:1}} title='Удалить события' onPress={() => { dispatch(deleteTasks()) }} />}
