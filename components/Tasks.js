@@ -16,19 +16,18 @@ export default function Tasks() {
   return (
     <View style={styles.container}>
 
-      <Form style={styles.form} />
-
-      <View style={styles.button}>
-        {taskss.length > 0 && <Button title='Удалить события' onPress={() => { dispatch(deleteTasks()) }} />}
-      </View>
+      <Form />
 
       <FlatList
         data={taskss}
         renderItem={({ item }) => (
           <ListItem elem={item} />
         )}
+        
         keyExtractor={( item ) => item.date}
       />
+
+{taskss.length > 0 && <Button title='Удалить события' onPress={() => { dispatch(deleteTasks()) }} />}
     </View>
 
   );
@@ -40,16 +39,6 @@ const styles = StyleSheet.create({
   container: {
 
 
-  },
-  form: {
-
-  },
-  scrollview: {
-
-  },
-  button: {
-    paddingTop: '10px',
-    paddingBottom: '10px'
   }
 
 });
