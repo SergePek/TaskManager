@@ -1,5 +1,5 @@
 
-import { StyleSheet, View, FlatList, Button } from 'react-native';
+import { StyleSheet, View, FlatList, Button, ScrollView } from 'react-native';
 import ListItem from './ListItem';
 import Form from './Form';
 import { useSelector, useDispatch } from 'react-redux';
@@ -14,20 +14,22 @@ export default function Tasks() {
   //console.log('Tasks : ' + taskss.length);
 
   return (
-    <View style={styles.container}>
+    <View style={{flex:1}}>
 
-      <Form />
+      <Form style={{flex:1}}/>
+      <ScrollView style={{flex:1}}>
+        <FlatList style={{flex:1}}
+          data={taskss}
+          renderItem={({ item }) => (
+            <ListItem elem={item} />
+          )}
 
-      <FlatList
-        data={taskss}
-        renderItem={({ item }) => (
-          <ListItem elem={item} />
-        )}
-        
-        keyExtractor={( item ) => item.date}
-      />
+          keyExtractor={(item) => item.date}
+        />
+      </ScrollView>
 
-{taskss.length > 0 && <Button title='Удалить события' onPress={() => { dispatch(deleteTasks()) }} />}
+
+      {taskss.length > 0 && <Button style={{flex:1}} title='Удалить события' onPress={() => { dispatch(deleteTasks()) }} />}
     </View>
 
   );

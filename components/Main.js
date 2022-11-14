@@ -10,15 +10,15 @@ export default function Main({navigation}) {
 
   return (
     <View style={styles.container}>
-     <Text>Стартовая страница</Text>
-     <Button title='Перейти к событиям' onPress={loadScene}/>
+     <Text style={{flex:1, fontSize:30}}>Стартовая страница</Text>
+     <Button style={{ flex:1}} title='Перейти к событиям' onPress={loadScene}/>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-
+    flex:1 
   }
    
 });
